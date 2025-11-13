@@ -1,0 +1,92 @@
+package br.ufal.ic.p2.myfood;
+
+import java.util.List;
+import br.ufal.ic.p2.myfood.service.UsuariosService;
+
+public class Facade {
+    private UsuariosService usuariosService;
+
+    public Facade() {
+        usuariosService = new UsuariosService();
+        usuariosService.carregarUsuarios();
+    }
+
+    public void zerarSistema() {
+        usuariosService.zerar();
+    }
+
+    public void encerrarSistema() {
+        usuariosService.salvar();
+    }
+
+    public int criarUsuario(String nome, String email, String senha, String endereco) {
+        return usuariosService.criarUsuario(nome, email, senha, endereco);
+    }
+
+    public int criarUsuario(String nome, String email, String senha, String endereco, String cpf) {
+        return usuariosService.criarUsuario(nome, email, senha, endereco, cpf);
+    }
+
+    public int login(String email, String senha) {
+        return usuariosService.login(email, senha);
+    }
+
+    public String getAtributoUsuario(int id, String atributo) {
+        return usuariosService.getAtributoUsuario(id, atributo);
+    }
+
+    public int criarEmpresa(String tipoEmpresa, int dono, String nome, String endereco, String tipoCozinha) {
+        return 0;
+    }
+
+    public List<List<String>> getEmpresasDoUsuario(int idDono) {
+        return null;
+    }
+
+    public String getAtributoEmpresa(int empresa, String atributo) {
+        return null;
+    }
+
+    public int getIdEmpresa(int idDono, String nome, int indice) {
+        return 0;
+    }
+
+    public int criarProduto(int empresa, String nome, Float valor, String categoria) {
+        return 0;
+    }
+
+    public void editarProduto(int produto, String nome, Float valor, String categoria) {
+
+    }
+
+    public String getProduto(String nome, int empresa, String atributo) {
+        return null;
+    }
+
+    public List<String> listarProdutos(int empresa) {
+        return null;
+    }
+
+    public int criarPedido(int cliente, int empresa) {
+        return 0;
+    }
+
+    public void adicionarProduto(int numero, int produto) {
+
+    }
+
+    public String getPedidos(int numero, String atributo) {
+        return null;
+    }
+
+    public void fecharPedido(int numero) {
+    }
+
+    public void removerProduto(int pedido, String produto) {
+    }
+
+    public int getNumeroPedido(int cliente, int empresa, int indice) {
+        return 0;
+    }
+
+}
